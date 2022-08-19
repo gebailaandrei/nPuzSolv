@@ -7,7 +7,7 @@ public class State {
     public int size;
     final int[][] board;
 
-    private int emptyX, emptyY; // The positions of the empty space on the board
+    private int spaceX, spaceY; // The positions of the empty space on the board
     public int[][] startState;
     public int[][] goalState;
     private int h; // This holds the heuristics of the board
@@ -30,8 +30,8 @@ public class State {
                     startState[i][j] = Integer.parseInt(arr[z]);
                     goalState[i][j] = z - 2;
                     if (Integer.parseInt(arr[z]) == 0) {
-                        this.emptyX = i;
-                        this.emptyY = j;
+                        this.spaceX = i;
+                        this.spaceY = j;
                     } // Location of the empty space
                     z++;
                 }
@@ -51,8 +51,8 @@ public class State {
         for (int i = 0; i < size; i++)
             for(int j = 0; j < size; j++)
                 if (board[i][j] == 0) {
-                    this.emptyX = i;
-                    this.emptyY = j;
+                    this.spaceX = i;
+                    this.spaceY = j;
                     break;
                 }
     }
@@ -60,11 +60,11 @@ public class State {
     public State clone() {
         int[][] clonedBoard = new int[size][size];
         for(int i = 0; i < size; i++)
-            if (size >= 0) System.arraycopy(this.board[i], 0, clonedBoard[i], 0, size);
+            System.arraycopy(this.board[i], 0, clonedBoard[i], 0, size);
         return new State(clonedBoard, this);
     }
     // Checks if this is the goal state
-    public boolean isGoal() {
+    public boolean IsGoal() {
         for (int i = 0; i < size; i++) {
             for(int j = 0; j < size; j++)
                 if (this.board[i][j] != goalState[i][j]) return false;
@@ -72,7 +72,7 @@ public class State {
         return true;
     }
     // Checks if 2 given boards are the same
-    public boolean sameBoard (State gs) {
+    public boolean SameBoard(State gs) {
         for (int i = 0; i < size; i++) {
             for(int j = 0; j < size; j++)
                 if (this.board[i][j] != gs.board[i][j]) return false;
@@ -80,12 +80,53 @@ public class State {
         return true;
     }
     // Returns the list of possible moves from the current game state
-    public ArrayList<State> possibleMoves() {
+    public ArrayList<State> PossibleMoves() {
         ArrayList<State> moves = new ArrayList<>();
 
+        for (int x = 0; x < size; x++) {
+            for(int y = 0; y < size; y++) {
+                if (x != this.spaceX || y != this.spaceY)
+                {
+                    int distance = Math.abs(this.spaceX - x) + Math.abs(this.spaceY - y);
+                    if (distance == 1)
+                    {
+                        State newState = this.clone();
+                        newState.board[this.spaceX][this.spaceY] = this.board[x][y];
+                        newState.board[x][y] = 0;
+                        newState.spaceX = x;
+                        newState.spaceY = y;
+
+                        for (int i = 0; i < size; i++) {
+                            for (int j = 0; j < size; j++) {
+                                int number = newState.board[i][j];
+                                if (number != 0)
+                                    newState.h += CalcH(number, i, j);
+                            }
+                        }
+                        moves.add(newState);
+                    }
+                }
+            }
+        }
         return moves;
     }
-    public void calculateHeuristics(){
 
+    public int GetHeuristics(){
+        return this.h;
+    }
+
+    public int CalcH(int c, int a, int b){
+        int costPos1 = 0, costPos2 = 0;
+        for(int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++){
+                if (goalState[i][j] == c)
+                {
+                    costPos1 = i;
+                    costPos2 = j;
+                    break;
+                }
+            }
+        }
+        return Math.abs(costPos1 - a) + Math.abs(costPos2 - b);
     }
 }
