@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class State {
-    public int size;
+    int size;
     final int[][] board;
 
     private int spaceX, spaceY; // The positions of the empty space on the board
-    public int[][] startState;
-    public int[][] goalState;
-    private int h; // This holds the heuristics of the board
+    int[][] startState;
+    int[][] goalState;
+    int h; // This holds the heuristics of the board
 
     // This constructor is used for the initial state only, and it sets the start and goal states and the size of the board
     public State(String filename) {
@@ -80,7 +80,7 @@ public class State {
         return true;
     }
     // Returns the list of possible moves from the current game state
-    public ArrayList<State> PossibleMoves() {
+    public ArrayList<State> PossibleMoves(Heuristics heuristic) {
         ArrayList<State> moves = new ArrayList<>();
 
         for (int x = 0; x < size; x++) {
@@ -96,13 +96,9 @@ public class State {
                         newState.spaceX = x;
                         newState.spaceY = y;
 
-                        for (int i = 0; i < size; i++) {
-                            for (int j = 0; j < size; j++) {
-                                int number = newState.board[i][j];
-                                if (number != 0)
-                                    newState.h += CalcH(number, i, j);
-                            }
-                        }
+                        newState.h = Heuristics.Heuristic(newState, heuristic);
+
+
                         moves.add(newState);
                     }
                 }
@@ -113,20 +109,5 @@ public class State {
 
     public int GetHeuristics(){
         return this.h;
-    }
-
-    public int CalcH(int c, int a, int b){
-        int costPos1 = 0, costPos2 = 0;
-        for(int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++){
-                if (goalState[i][j] == c)
-                {
-                    costPos1 = i;
-                    costPos2 = j;
-                    break;
-                }
-            }
-        }
-        return Math.abs(costPos1 - a) + Math.abs(costPos2 - b);
     }
 }
