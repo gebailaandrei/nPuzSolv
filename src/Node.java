@@ -8,16 +8,29 @@ public class Node implements Comparable<Node>{
 
     // Used for the start node
     public Node(State state) {
-        this(state,null, 0);
+        this(state,null, 0, null);
     }
 
-    public Node(State state, Node parent, int depth) {
+    public Node(State state, Node parent, int depth, Heuristics heur) {
         this.state = state;
         this.parent = parent;
         this.depth = depth;
         // if(manhattan heuristics) do this
-        cost = (int)Math.pow(state.GetHeuristics(), 4) * depth;
-        //cost = state.GetHeuristics() + depth;
+        if(state.size == 3) {
+            if(heur == Heuristics.Hamming)
+                cost = (int) Math.pow(state.GetHeuristics(), 4) * depth;
+            else if (heur == Heuristics.Manhattan)
+                cost = state.GetHeuristics() * depth;
+            else if (heur == Heuristics.LinearConflict)
+                cost = state.GetHeuristics() + depth;
+        }else if(state.size == 4 || state.size == 5) {
+            if(heur == Heuristics.Hamming)
+                cost = (int) Math.pow(state.GetHeuristics(), 4) * depth;
+            else if(heur == Heuristics.Manhattan)
+                cost = (int) Math.pow(state.GetHeuristics(), 4) * depth;
+            else if(heur == Heuristics.LinearConflict)
+                cost = (int) Math.pow(state.GetHeuristics(), 2) * depth;
+        }
     }
 
     public int getDepth(){
