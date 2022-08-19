@@ -1,11 +1,93 @@
-(4)[9 8 5 6 15 10 2 12 14 1 7 11 0 4 13 3]
+(3)[8 6 7 2 5 4 3 0 1]
 
 
-(3)[8 7 6 5 4 3 2 1 0] - hardest 3x3
+(3)[8 6 7 2 5 4 3 0 1] - hardest 3x3
+31 moves, 5320 exp, 3016 unexp, ~0.51 time
+
+(3)[8 7 6 5 4 3 2 1 0]
+initial - 58 moves, 233 exp, 173 unexp, ~0.006s time
+1st improvement - 56 moves, 497 exp, 319 unexp, ~0.12s time
+2nd improvement - 30 moves, 3564 exp, 2053 unexp, ~0.33 time
+
 
 (4)[12 6 4 3 13 15 7 0 8 9 11 2 14 5 1 10]
+initial - 202 moves, 3500 exp, 3745 unexp, ~0.6s time
+1st improvement - 84 moves, 11973 exp, 10542 unexp, ~4.7s time
+
+
 (4)[9 8 5 6 15 10 2 12 14 1 7 11 0 4 13 3]
+initial - 207 moves, 7461 exp, 7970 unexp, ~2.6s time
+1st improvement - 89 moves, 8522 exp, 7504 unexp, ~2.7s time
+
 
 (5)[15 9 24 11 7 13 20 6 12 3 8 22 19 17 10 14 2 1 23 18 0 16 5 4 21]
+initial - 264 moves, 7860 exp, 9335 unexp, ~3s time
+1st improvement - too long
+
+
 (5)[7 21 20 22 14 8 24 13 15 6 11 10 23 2 3 5 1 18 19 4 17 16 9 12 0]
-(5)[7 11 0 9 24 10 18 12 4 3 16 21 15 5 1 8 14 6 23 19 2 13 17 22 20]
+initial - 262 moves, 8192 exp, 10375 unex, ~4s time
+1st improvement - too long
+
+
+
+
+
+
+    public int Manhattan(State newState){
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                for (int x = 0; x < size; x++) {
+                    for (int y = 0; y < size; y++) {
+                        if (goalState[x][y] == newState.board[i][j]) {
+                            newState.h += Math.abs(x - i) + Math.abs(y - j);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        return newState.h;
+    }
+
+    public int LinearConflict(State newState)
+    {
+        int[] tiles = new int[size * size];
+        int m = 0;
+        for(int i = 0; i < size; i++){
+            for(int j = 0; j < size; j++) {
+                tiles[m] = newState.board[i][j];
+                m++;
+            }
+        }
+        int conflicts = 0;
+        for(int i = 0; i < size; i++){
+            for(int j = 0; j < size; j++){
+                int lin = i * size + j;
+                if(tiles[lin] == 0)
+                    continue;
+                int a = (tiles[lin]-1) % size, b = (int)Math.floor((tiles[lin]-1)/size);
+                if(j == a && i == b)
+                    continue;
+
+                if(j == a)
+                {
+                    for(int ii = Math.min(b, i); ii < Math.max(b, i); ii++)
+                    {
+                        int lin1 = ii * size + j;
+                        int currCellX = (tiles[lin1]-1) % size;
+                        if(currCellX == j) conflicts++;
+                    }
+                }else if(i == b)
+                {
+                    for(int jj = Math.min(a, j); jj < Math.max(a, j); jj++)
+                    {
+                        int lin2 = i * size + jj;
+                        int currCellY = (int)Math.floor((tiles[lin2]-1) / size);
+                        if(currCellY == i) conflicts++;
+                    }
+                }
+            }
+        }
+        return Manhattan(newState) + conflicts * 2;
+    }

@@ -18,25 +18,23 @@ public class Solver extends JPanel {
         this.size = startState.size;
     }
     // This is the method that solves the puzzle using the A* search
-    public void Solve(){
+    public void Solve(Heuristics heuristic){
         long start = System.nanoTime();
         unexpanded.add(rootNode);
         while (unexpanded.size() > 0) {
             Collections.sort(unexpanded);
-            Node n = unexpanded.get(0); // Takes the best node to expand
+            Node n = unexpanded.get(0); // Node with the lowest cost
             expanded.add(n);
             unexpanded.remove(n);
             if (n.state.IsGoal()) {
                 System.out.println("Time taken: " + (double) (System.nanoTime() - start) / 1_000_000_000);
                 Solution(n);
                 return;
-            } else {
-                ArrayList<State> moveList = n.state.PossibleMoves();
-                for (State gs : moveList) {
-                    if ((Node.findNodeWithState(unexpanded, gs) == null) &&
-                            (Node.findNodeWithState(expanded, gs) == null)) {
-                        unexpanded.add(new Node(gs, n, n.getDepth() + 1));
-                    }
+            }
+            for (State gs : n.state.PossibleMoves(heuristic)) {
+                if ((Node.findNodeWithState(unexpanded, gs) == null) &&
+                        (Node.findNodeWithState(expanded, gs) == null)) {
+                    unexpanded.add(new Node(gs, n, n.getDepth() + 1, heuristic));
                 }
             }
         }
@@ -103,7 +101,7 @@ public class Solver extends JPanel {
         Solver solver = new Solver("src\\board.txt");
         System.out.println("Searching...");
         System.out.println("It's going to take a few seconds.");
-        solver.Solve();    // Search for and print the solution
+        solver.Solve(Heuristics.Hamming);    // Search for and print the solution
     }
 
 }
