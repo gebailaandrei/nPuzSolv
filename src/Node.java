@@ -11,25 +11,26 @@ public class Node implements Comparable<Node>{
         this(state,null, 0, null);
     }
 
-    public Node(State state, Node parent, int depth, Heuristics heur) {
+    public Node(State state, Node parent, int depth, Heuristics heuristics) {
         this.state = state;
         this.parent = parent;
         this.depth = depth;
-        // if(manhattan heuristics) do this
+
+        if(heuristics == null) {
+            cost = 0;
+            return;
+        }
+
         if(state.size == 3) {
-            if(heur == Heuristics.Hamming)
-                cost = (int) Math.pow(state.GetHeuristics(), 4) * depth;
-            else if (heur == Heuristics.Manhattan)
-                cost = state.GetHeuristics() * depth;
-            else if (heur == Heuristics.LinearConflict)
-                cost = state.GetHeuristics() + depth;
+            switch (heuristics){
+                case HAMMING -> cost = (int) Math.pow(state.GetHeuristics(), 4) * depth;
+                case MANHATTAN, LINEAR_CONFLICT -> cost = state.GetHeuristics() + depth;
+            }
         }else if(state.size == 4 || state.size == 5) {
-            if(heur == Heuristics.Hamming)
-                cost = (int) Math.pow(state.GetHeuristics(), 4) * depth;
-            else if(heur == Heuristics.Manhattan)
-                cost = (int) Math.pow(state.GetHeuristics(), 4) * depth;
-            else if(heur == Heuristics.LinearConflict)
-                cost = (int) Math.pow(state.GetHeuristics(), 2) * depth;
+            switch (heuristics){
+                case HAMMING, MANHATTAN -> cost = (int) Math.pow(state.GetHeuristics(), 4) * depth;
+                case LINEAR_CONFLICT -> cost = (int) Math.pow(state.GetHeuristics(), 3) * depth;
+            }
         }
     }
 
