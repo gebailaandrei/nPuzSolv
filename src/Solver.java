@@ -98,7 +98,7 @@ public class Solver extends JPanel {
         Solver solver = new Solver("src\\board.txt");
         System.out.println("Searching...");
         System.out.println("It's going to take a few seconds.");
-        solver.Solve(Heuristics.MANHATTAN);
+        solver.Solve(Heuristics.LINEAR_CONFLICT);
     }
 
 }
