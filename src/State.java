@@ -97,8 +97,6 @@ public class State {
                         newState.spaceY = y;
 
                         newState.h = Heuristics.Heuristic(newState, heuristic);
-
-
                         moves.add(newState);
                     }
                 }

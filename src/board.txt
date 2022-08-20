@@ -2,33 +2,34 @@
 
 
 (3)[8 6 7 2 5 4 3 0 1] - hardest 3x3
-31 moves, 5320 exp, 3016 unexp, ~0.51 time
+Hamming - 31 moves, 17095 exp, 7693 unexp, 5.22s
+Manhattan - 31 moves, 17946 exp, 9527 unexp, 6.22s
+Linear Conflict - 31 moves, 5320 exp, 3016 unexx, 0.66s
 
 (3)[8 7 6 5 4 3 2 1 0]
-initial - 58 moves, 233 exp, 173 unexp, ~0.006s time
-1st improvement - 56 moves, 497 exp, 319 unexp, ~0.12s time
-2nd improvement - 30 moves, 3564 exp, 2053 unexp, ~0.33 time
-
+Hamming - 32, 18755 exp, 8284 unexp, 6.35s
+Manhattan - 30 moves, 15635 exp, 7930 unexp, 4.79s
+Linear Conflict - 30 moves, 9630 exp, 5473 unexp, 2.03s
 
 (4)[12 6 4 3 13 15 7 0 8 9 11 2 14 5 1 10]
-initial - 202 moves, 3500 exp, 3745 unexp, ~0.6s time
-1st improvement - 84 moves, 11973 exp, 10542 unexp, ~4.7s time
-
+Hamming -
+Manhattan - 84 moves, 11973 exp, 10542 unexp, 4.20s
+Linear Conflict - 70 moves, 26145 exp, 23145 unexp, 21.58s
 
 (4)[9 8 5 6 15 10 2 12 14 1 7 11 0 4 13 3]
-initial - 207 moves, 7461 exp, 7970 unexp, ~2.6s time
-1st improvement - 89 moves, 8522 exp, 7504 unexp, ~2.7s time
-
+Hamming -
+Manhattan - 89 moves, 8522 exp, 7504 unexp, 2.56s
+Linear Conflict - 87 moves, 5388 exp, 4673 unexp, 1.11s
 
 (5)[15 9 24 11 7 13 20 6 12 3 8 22 19 17 10 14 2 1 23 18 0 16 5 4 21]
-initial - 264 moves, 7860 exp, 9335 unexp, ~3s time
-1st improvement - too long
-
+Hamming -
+Manhattan -
+Linear Conflict -
 
 (5)[7 21 20 22 14 8 24 13 15 6 11 10 23 2 3 5 1 18 19 4 17 16 9 12 0]
-initial - 262 moves, 8192 exp, 10375 unex, ~4s time
-1st improvement - too long
-
+Hamming -
+Manhattan -
+Linear Conflict -
 
 
 

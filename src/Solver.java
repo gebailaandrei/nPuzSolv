@@ -27,7 +27,7 @@ public class Solver extends JPanel {
             expanded.add(n);
             unexpanded.remove(n);
             if (n.state.IsGoal()) {
-                System.out.println("Time taken: " + (double) (System.nanoTime() - start) / 1_000_000_000);
+                System.out.println("Time taken: " + String.format("%,.2f", ((double) (System.nanoTime() - start) / 1_000_000_000)) + "s.");
                 Solution(n);
                 return;
             }
@@ -101,7 +101,7 @@ public class Solver extends JPanel {
         Solver solver = new Solver("src\\board.txt");
         System.out.println("Searching...");
         System.out.println("It's going to take a few seconds.");
-        solver.Solve(Heuristics.Hamming);    // Search for and print the solution
+        solver.Solve(Heuristics.HAMMING);
     }
 
 }
