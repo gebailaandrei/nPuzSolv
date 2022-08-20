@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Solver extends JPanel {
-    ArrayList<Node> unexpanded = new ArrayList<>(); // Holds unexpanded node list
-    ArrayList<Node> expanded = new ArrayList<>();   // Holds expanded node list
-    Node rootNode;                                  // Node representing initial state
+    ArrayList<Node> unexpanded = new ArrayList<>();
+    ArrayList<Node> expanded = new ArrayList<>();
+    Node rootNode;      // Node representing the start state
     State startState;
     Cell[][] cells;
     int size;
@@ -34,7 +34,7 @@ public class Solver extends JPanel {
             for (State gs : n.state.PossibleMoves(heuristic)) {
                 if ((Node.findNodeWithState(unexpanded, gs) == null) &&
                         (Node.findNodeWithState(expanded, gs) == null)) {
-                    unexpanded.add(new Node(gs, n, n.getDepth() + 1, heuristic));
+                    unexpanded.add(new Node(gs, n, heuristic));
                 }
             }
         }
@@ -45,14 +45,19 @@ public class Solver extends JPanel {
         if (n.parent != null) NextMove(n.parent);
 
         try {
-            Thread.sleep(10);
+            Thread.sleep(5);
         }catch (InterruptedException e){
             e.getStackTrace();
         }
 
         for(int i = 0; i < size; i++)
-            for(int j = 0; j < size; j++)
+            for(int j = 0; j < size; j++) {
+                if (n.state.board[i][j] == 0)
+                    cells[i][j].setBackground(Color.red);
+                else
+                    cells[i][j].setBackground(Color.WHITE);
                 cells[i][j].label.setText(Integer.toString(n.state.board[i][j]));
+            }
 
     }
 
@@ -84,24 +89,16 @@ public class Solver extends JPanel {
         grid = new JPanel(new GridLayout(3,1));
         frame.add(grid);
 
-        ArrayList<JLabel> labelList = new ArrayList<>();
-        labelList.add(new JLabel("Moves: " + n.getDepth(), SwingConstants.CENTER));
-        labelList.add(new JLabel("Expanded: " + this.expanded.size(), SwingConstants.CENTER));
-        labelList.add(new JLabel("Unexpanded: " + this.unexpanded.size(), SwingConstants.CENTER));
-
-        for(JLabel label : labelList)
-        {
-            label.setFont(new Font(Font.MONOSPACED,Font.BOLD, 40));
-            grid.add(label);
-        }
-
+        grid.add(new JLabel("Moves: " + n.getDepth(), SwingConstants.CENTER)).setFont(new Font(Font.MONOSPACED,Font.BOLD, 40));
+        grid.add(new JLabel("Expanded: " + this.expanded.size(), SwingConstants.CENTER)).setFont(new Font(Font.MONOSPACED,Font.BOLD, 40));
+        grid.add(new JLabel("Unexpanded: " + this.unexpanded.size(), SwingConstants.CENTER)).setFont(new Font(Font.MONOSPACED,Font.BOLD, 40));
     }
 
     public static void main(String[] args) {
         Solver solver = new Solver("src\\board.txt");
         System.out.println("Searching...");
         System.out.println("It's going to take a few seconds.");
-        solver.Solve(Heuristics.HAMMING);
+        solver.Solve(Heuristics.MANHATTAN);
     }
 
 }

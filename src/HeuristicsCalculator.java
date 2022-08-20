@@ -4,7 +4,7 @@ public interface HeuristicsCalculator {
 }
 
 class CalculateHeuristics{
-
+    // Very fast on 3x3 boards, terrible for higher
     public static HeuristicsCalculator Hamming = (newState) -> {
         int misplaced = 0;
         for (int i = 0; i < newState.size; i++) {
@@ -15,29 +15,26 @@ class CalculateHeuristics{
         }
         return misplaced;
     };
-
+    // Very fast on 3x3 and 4x4 boards
     public static HeuristicsCalculator Manhattan = (newState) -> {
         for (int i = 0; i < newState.size; i++) {
             for (int j = 0; j < newState.size; j++) {
                 for (int x = 0; x < newState.size; x++) {
-                    boolean found = false;
+                    boolean wellPlaced = false;
                     for (int y = 0; y < newState.size; y++) {
                         if (newState.goalState[x][y] == newState.board[i][j]) {
                             newState.h += Math.abs(x - i) + Math.abs(y - j);
-                            found = true;
+                            wellPlaced = true;
                             break;
                         }
                     }
-                    if(found) break;
+                    if(wellPlaced) break;
                 }
             }
         }
-
         return newState.h;
     };
-
-    public static HeuristicsCalculator HammingAndManhattan = (newState) -> Hamming.CalculateHeuristics(newState) + Manhattan.CalculateHeuristics(newState);
-
+    // Extremely fast for 3x3 and 4x4 boards
     public static HeuristicsCalculator LinearConflict = (State newState) -> {
         int[] uniBoard = new int[newState.size * newState.size];
         int m = 0;
@@ -51,8 +48,10 @@ class CalculateHeuristics{
         for(int l = 0; l < newState.size; l++){
             for(int c = 0; c < newState.size; c++){
                 int index = l * newState.size + c;
+
                 if(uniBoard[index] == 0)
                     continue;
+
                 int a = (uniBoard[index] - 1) % newState.size;
                 int b = (int)Math.floor((uniBoard[index] - 1) / newState.size);
                 if(c == a && l == b)

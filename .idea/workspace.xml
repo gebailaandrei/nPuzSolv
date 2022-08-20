@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="730bae8f-532c-4530-878b-57b87f711d87" name="Changes" comment="Minor changes">
-      <change afterPath="$PROJECT_DIR$/src/HeuristicsCalculator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Heuristics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Heuristics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HeuristicsCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HeuristicsCalculator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Node.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Solver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Solver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/State.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/board.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/board.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -77,7 +76,7 @@
       <workItem from="1660227202647" duration="4039000" />
       <workItem from="1660496845081" duration="28000" />
       <workItem from="1660828925831" duration="5718000" />
-      <workItem from="1660880073530" duration="30215000" />
+      <workItem from="1660880073530" duration="36982000" />
     </task>
     <task id="LOCAL-00001" summary="Created Project">
       <created>1659977630973</created>
@@ -170,7 +169,28 @@
       <option name="project" value="LOCAL" />
       <updated>1660926861134</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Implemented heuristic functions using a Functional Interface">
+      <created>1660963436320</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1660963436320</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Modified cost calculation for different heuristics">
+      <created>1660963460316</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1660963460316</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Minor changes">
+      <created>1660963511485</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1660963511485</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,6 +220,8 @@
     <MESSAGE value="Improved Manhattan and added Hamming and Linear Conflict" />
     <MESSAGE value="Moved heuristic calculation to Heuristics.java" />
     <MESSAGE value="Added custom cost calculation depending on the heuristics used" />
+    <MESSAGE value="Implemented heuristic functions using a Functional Interface" />
+    <MESSAGE value="Modified cost calculation for different heuristics" />
     <MESSAGE value="Minor changes" />
     <option name="LAST_COMMIT_MESSAGE" value="Minor changes" />
   </component>
