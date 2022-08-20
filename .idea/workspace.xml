@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="730bae8f-532c-4530-878b-57b87f711d87" name="Changes" comment="Minor changes">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Heuristics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Heuristics.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HeuristicsCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HeuristicsCalculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Solver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Solver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/board.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/board.txt" afterDir="false" />
-    </list>
+    <list default="true" id="730bae8f-532c-4530-878b-57b87f711d87" name="Changes" comment="Minor changes" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -76,7 +69,7 @@
       <workItem from="1660227202647" duration="4039000" />
       <workItem from="1660496845081" duration="28000" />
       <workItem from="1660828925831" duration="5718000" />
-      <workItem from="1660880073530" duration="36982000" />
+      <workItem from="1660880073530" duration="37300000" />
     </task>
     <task id="LOCAL-00001" summary="Created Project">
       <created>1659977630973</created>
@@ -190,7 +183,49 @@
       <option name="project" value="LOCAL" />
       <updated>1660963511485</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Improved cost calculation + removed for 5x5 boards">
+      <created>1660970329795</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1660970329795</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Improved cost calculation + removed for 5x5 boards">
+      <created>1660970370344</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1660970370344</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Improved cost calculation + removed for 5x5 boards">
+      <created>1660970384032</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1660970384032</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Improved cost calculation + removed for 5x5 boards">
+      <created>1660970390240</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1660970390240</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Merge remote-tracking branch 'origin/main'">
+      <created>1660970422945</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1660970422945</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Minor changes">
+      <created>1660970460706</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1660970460706</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -222,6 +257,8 @@
     <MESSAGE value="Added custom cost calculation depending on the heuristics used" />
     <MESSAGE value="Implemented heuristic functions using a Functional Interface" />
     <MESSAGE value="Modified cost calculation for different heuristics" />
+    <MESSAGE value="Improved cost calculation + removed for 5x5 boards" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/main'" />
     <MESSAGE value="Minor changes" />
     <option name="LAST_COMMIT_MESSAGE" value="Minor changes" />
   </component>
