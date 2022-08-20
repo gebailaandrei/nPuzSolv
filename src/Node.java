@@ -8,13 +8,13 @@ public class Node implements Comparable<Node>{
 
     // Used for the start node
     public Node(State state) {
-        this(state,null, 0, null);
+        this(state,null, null);
     }
 
-    public Node(State state, Node parent, int depth, Heuristics heuristics) {
+    public Node(State state, Node parent, Heuristics heuristics) {
         this.state = state;
         this.parent = parent;
-        this.depth = depth;
+        depth = (this.parent == null) ? 0 : this.parent.depth + 1;
 
         if(heuristics == null) {
             cost = 0;
@@ -23,12 +23,13 @@ public class Node implements Comparable<Node>{
 
         if(state.size == 3) {
             switch (heuristics){
-                case HAMMING -> cost = (int) Math.pow(state.GetHeuristics(), 4) * depth;
-                case MANHATTAN, LINEAR_CONFLICT -> cost = state.GetHeuristics() + depth;
+                case HAMMING ->                     cost = (int) Math.pow(state.GetHeuristics(), state.size+1) * depth;
+                case MANHATTAN, LINEAR_CONFLICT ->  cost = state.GetHeuristics() + depth;
             }
-        }else if(state.size == 4 || state.size == 5) {
+        }else if(state.size == 4) {
             switch (heuristics){
-                case HAMMING, MANHATTAN -> cost = (int) Math.pow(state.GetHeuristics(), 4) * depth;
+                case HAMMING ->         cost = (int) Math.pow(state.GetHeuristics(), 6) * depth;
+                case MANHATTAN ->       cost = (int) Math.pow(state.GetHeuristics(), 2) * depth;
                 case LINEAR_CONFLICT -> cost = (int) Math.pow(state.GetHeuristics(), 3) * depth;
             }
         }
