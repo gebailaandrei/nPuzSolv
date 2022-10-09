@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="730bae8f-532c-4530-878b-57b87f711d87" name="Changes" comment="Added README">
-      <change afterPath="$PROJECT_DIR$/SolverSS.png" afterDir="false" />
+    <list default="true" id="730bae8f-532c-4530-878b-57b87f711d87" name="Changes" comment="Minor changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Solver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Solver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/board.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/board.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -299,7 +296,21 @@
       <option name="project" value="LOCAL" />
       <updated>1665337358271</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Added screenshot to README">
+      <created>1665337552016</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1665337552016</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Minor changes">
+      <created>1665337573387</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1665337573387</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -333,9 +344,10 @@
     <MESSAGE value="Modified cost calculation for different heuristics" />
     <MESSAGE value="Improved cost calculation + removed for 5x5 boards" />
     <MESSAGE value="Merge remote-tracking branch 'origin/main'" />
-    <MESSAGE value="Minor changes" />
     <MESSAGE value="Created gif for README" />
     <MESSAGE value="Added README" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added README" />
+    <MESSAGE value="Added screenshot to README" />
+    <MESSAGE value="Minor changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor changes" />
   </component>
 </project>
