@@ -45,7 +45,7 @@ public class Solver extends JPanel {
         if (n.parent != null) NextMove(n.parent);
 
         try {
-            Thread.sleep(5);
+            Thread.sleep(10);
         }catch (InterruptedException e){
             e.getStackTrace();
         }

@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="730bae8f-532c-4530-878b-57b87f711d87" name="Changes" comment="Minor changes" />
+    <list default="true" id="730bae8f-532c-4530-878b-57b87f711d87" name="Changes" comment="Added README">
+      <change afterPath="$PROJECT_DIR$/SolverSS.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Solver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Solver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/board.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/board.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,13 +43,46 @@
     "nodejs_package_manager_path": "npm"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Projects\IntelliJProjects\nPuzSolv" />
+    </key>
+  </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="Solve" />
       <command value="Solver" />
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Solver">
+    <configuration name="Solver (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Solver" />
+      <module name="nPuzSolv" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Solver (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Solver" />
+      <module name="nPuzSolv" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Solver (4)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Solver" />
+      <module name="nPuzSolv" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Solver (5)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Solver" />
+      <module name="nPuzSolv" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Solver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Solver" />
       <module name="nPuzSolv" />
@@ -54,6 +93,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Solver" />
+        <item itemvalue="Application.Solver (5)" />
+        <item itemvalue="Application.Solver (4)" />
+        <item itemvalue="Application.Solver (3)" />
+        <item itemvalue="Application.Solver (2)" />
       </list>
     </recent_temporary>
   </component>
@@ -69,7 +112,10 @@
       <workItem from="1660227202647" duration="4039000" />
       <workItem from="1660496845081" duration="28000" />
       <workItem from="1660828925831" duration="5718000" />
-      <workItem from="1660880073530" duration="37300000" />
+      <workItem from="1660880073530" duration="37481000" />
+      <workItem from="1660970728141" duration="2911000" />
+      <workItem from="1661761568669" duration="1205000" />
+      <workItem from="1661763394772" duration="23000" />
     </task>
     <task id="LOCAL-00001" summary="Created Project">
       <created>1659977630973</created>
@@ -225,7 +271,35 @@
       <option name="project" value="LOCAL" />
       <updated>1660970460706</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Minor changes">
+      <created>1660970504721</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1660970504721</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Created gif for README">
+      <created>1665337205129</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1665337205129</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Added README">
+      <created>1665337314491</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1665337314491</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Added README">
+      <created>1665337358271</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1665337358271</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,6 +334,8 @@
     <MESSAGE value="Improved cost calculation + removed for 5x5 boards" />
     <MESSAGE value="Merge remote-tracking branch 'origin/main'" />
     <MESSAGE value="Minor changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Minor changes" />
+    <MESSAGE value="Created gif for README" />
+    <MESSAGE value="Added README" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added README" />
   </component>
 </project>
